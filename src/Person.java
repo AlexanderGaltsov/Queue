@@ -3,35 +3,39 @@ public class Person {
     protected String name;   //Имя
     protected String surname;  //Фамилия
     protected int numberTickets;  //Количество билетов
+    public static int ticketsLeft;
 
     //Конструктор клиента
-    public Person(String name, String surname, int numberTickets){
+    public Person(String name, String surname, int numberTickets) {
         this.name = name;
         this.surname = surname;
         this.numberTickets = numberTickets;
     }
 
+    // Возвращает введенное имя
     public String getName() {
         return name;
-    } // Возвращает введенное имя
+    }
 
+    //Возвращает введенную фамилию
     public String getSurname() {
         return surname;
-    }  //Возвращает введенную фамилию
+    }
 
+    //Возвращает введеное количество билетов
     public int getNumberTickets() {
         return numberTickets;
-    }  //Возвращает введеное количество билетов
+    }
 
     //Метод ту стринг  для вывода списка клиентов через метод generateClients()
-    public String toString(){
+    public String toString() {
         return "Клиент " + getName() + " " + getSurname() + " " + "количество билетов " + getNumberTickets();
     }
 
-    public static void main(String[] args) {
-
-
-
+    //Метод отнимает один билет
+    public int pickTicket() {
+        ticketsLeft = numberTickets--;
+        return ticketsLeft;
     }
 
 

@@ -4,17 +4,21 @@ import java.util.Queue;
 
 public class Main {
 
-
     // Метод который выводит список клиентов
     public static List<Person> generateClients() {
         for (Person client : personList) {
             System.out.println(client);
         }
+        System.out.println();
+        System.out.println();
         return personList;
     }
 
     //  Создание коллекции
     public static List<Person> personList = new LinkedList<>();
+
+    //  Создание очереди
+    public static Queue<Person> personQueue = new LinkedList<>();
 
 
     public static void main(String[] args) {
@@ -37,7 +41,19 @@ public class Main {
         // Вызов метода для вывода списка клиентов
         generateClients();
 
+        // Передача из коллекции в очередь
+        personQueue.addAll(personList);
+
+        // Цикл проверки очереди пока она неопустела
+        while (!personQueue.isEmpty()) {
+            Person vacationer = personQueue.poll();// Присвоение переменной vacationer последовательно значений из очереди
+            System.out.println(vacationer + " " + "прокатился на атракционе");//Вывод переменной
+            System.out.println();//Пустая строка в выводе
+            vacationer.pickTicket();// Метод в котором отнимается один билет
+            if (Person.ticketsLeft > 0) {//Условие, что билетов осталось не меньше нуля
+                personQueue.add(vacationer);//Если условие верно, то возвращается значение переменной в конец очереди
+            }
+        }
+
     }
-
-
 }
