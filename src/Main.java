@@ -47,10 +47,10 @@ public class Main {
         // Цикл проверки очереди пока она неопустела
         while (!personQueue.isEmpty()) {
             Person vacationer = personQueue.poll();// Присвоение переменной vacationer последовательно значений из очереди
-            System.out.println(vacationer + " " + "прокатился на атракционе");//Вывод переменной
-            System.out.println();//Пустая строка в выводе
             vacationer.pickTicket();// Метод в котором отнимается один билет
             if (Person.ticketsLeft > 0) {//Условие, что билетов осталось не меньше нуля
+                System.out.println(vacationer + " " + "прокатился на атракционе");//Вывод переменной
+                System.out.println();//Пустая строка в выводе
                 personQueue.add(vacationer);//Если условие верно, то возвращается значение переменной в конец очереди
             }
         }
