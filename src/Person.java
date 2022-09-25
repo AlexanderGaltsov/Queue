@@ -1,9 +1,10 @@
 public class Person {
 
+
     protected String name;   //Имя
     protected String surname;  //Фамилия
     protected int numberTickets;  //Количество билетов
-    public static int ticketsLeft;
+    public int ticketsLeft;  //Количество оставшихся билетов
 
     //Конструктор клиента
     public Person(String name, String surname, int numberTickets) {
@@ -37,6 +38,5 @@ public class Person {
         ticketsLeft = numberTickets--;
         return ticketsLeft;
     }
-
 
 }
